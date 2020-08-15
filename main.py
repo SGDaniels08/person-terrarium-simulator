@@ -44,9 +44,16 @@ def print_terrarium():
     # Oval for sizing
     person_height = 75
     person_width = 20
+    person_box = pygame.Surface((person_width, person_height), pygame.SRCALPHA, 32)
     person_origin_x = 300
     person_origin_y = sand_origin_y - person_height
-    pygame.draw.ellipse(world, black, (person_origin_x, person_origin_y, person_width, person_height))
+    pygame.draw.ellipse(person_box, black, (0, 0, person_width, person_height))
+    world.blit(person_box, (person_origin_x, person_origin_y))
+
+    # Text
+    game_font = pygame.font.SysFont("Lucida Console", 36)
+    game_text = game_font.render("Graaaaaassssss... tastes bad!", 1, black)
+    world.blit(game_text, (25, 25))
 
     pygame.display.update()
 
