@@ -55,12 +55,14 @@ def print_terrarium():
     game_text = game_font.render("Graaaaaassssss... tastes bad!", 1, black)
     world.blit(game_text, (25, 25))
 
-    pygame.display.update()
+    # Close program box
+
+    while True:
+        pygame.display.update()
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     print_terrarium()
-    input()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
