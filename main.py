@@ -55,9 +55,28 @@ def print_terrarium():
     game_text = game_font.render("Graaaaaassssss... tastes bad!", 1, black)
     world.blit(game_text, (25, 25))
 
+    # Put frames in list
+    walking_frames = []
+    for i in range(24):
+        image_path = "frame" + str(i) + ".png"
+        im = pygame.image.load(image_path)
+        walking_frames.append(im)
+
     # Close program box
 
+    # Game loop
+    clock = pygame.time.Clock()
     while True:
+        clock.tick(24)
+
+        # Animation
+        frame_count = 0
+        world.blit(walking_frames[frame_count], (10, 10))
+        if frame_count < 24:
+            frame_count += 1
+        else:
+            frame_count = 0
+
         pygame.display.update()
 
 
