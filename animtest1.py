@@ -10,7 +10,7 @@ frames_list = []
 frame = 0  # start frames at 0
 
 # Add each frame to frames_list
-for i in range(24):
+for i in range(12):
     individual_frame = pygame.image.load("frame" + str(i) +".png")
     frames_list.append(individual_frame)
 
@@ -25,12 +25,14 @@ while True:
             pygame.quit()
             sys.exit()
 
+    DISPLAYSURF.fill((255, 255, 255))
+
     #iterate through list of frames, printing new one each time
 
     DISPLAYSURF.blit(frames_list[frame], (50, 50))
     frame += 1
 
-    if frame == 24:
+    if frame == 12:
         frame = 0
 
     pygame.display.update()
