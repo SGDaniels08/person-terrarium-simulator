@@ -7,6 +7,7 @@ pygame.init()
 FPS = 30
 game_clock = pygame.time.Clock()
 frames_list = []
+frame = 0  # start frames at 0
 
 # Add each frame to frames_list
 for i in range(24):
@@ -25,7 +26,12 @@ while True:
             sys.exit()
 
     #iterate through list of frames, printing new one each time
-    DISPLAYSURF.blit(frames_list[0], (50, 50))
+
+    DISPLAYSURF.blit(frames_list[frame], (50, 50))
+    frame += 1
+
+    if frame == 24:
+        frame = 0
 
     pygame.display.update()
     game_clock.tick(FPS)
