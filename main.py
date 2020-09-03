@@ -4,7 +4,8 @@
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 
-import pygame
+import pygame,sys
+from pygame.locals import *
 
 
 def print_terrarium():
@@ -57,24 +58,30 @@ def print_terrarium():
 
     # Put frames in list
     walking_frames = []
-    for i in range(24):
+    for i in range(12):
         image_path = "frame" + str(i) + ".png"
         im = pygame.image.load(image_path)
         walking_frames.append(im)
-
+        
     # Close program box
 
     # Game loop
     clock = pygame.time.Clock()
+    frame_count = 0
     while True:
         clock.tick(24)
 
+        # Test events
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+
         # Animation
-        frame_count = 0
         world.blit(walking_frames[frame_count], (10, 10))
-        if frame_count < 24:
-            frame_count += 1
-        else:
+
+        frame_count += 1
+        if frame_count == 12:
             frame_count = 0
 
         pygame.display.update()
